@@ -2,12 +2,16 @@ package designpatterns.creational.abstractfactory.pizza;
 
 
 import designpatterns.creational.abstractfactory.ingredient.ICheese;
+import designpatterns.creational.abstractfactory.ingredient.IClams;
 import designpatterns.creational.abstractfactory.ingredient.IDough;
+import designpatterns.creational.abstractfactory.ingredient.ISauce;
 
 public abstract class Pizza {
     private String name;
     private IDough dough;
+    private ISauce sauce;
     private ICheese cheese;
+    private IClams clams;
 
     public abstract void prepare();
 
@@ -35,15 +39,28 @@ public abstract class Pizza {
         this.dough = dough;
     }
 
+    void setSauce(ISauce sauce) {
+        this.sauce = sauce;
+    }
+
     void setCheese(ICheese cheese) {
         this.cheese = cheese;
     }
 
+    void setClams(IClams clams) {
+        this.clams = clams;
+    }
+
     @Override
     public String toString() {
-        return "Pizza Ready: " +
+        var output = "Pizza Ready: " +
                 "name => " + name +
-                ", dough => " + dough.getDoughType() +
-                ", cheese => " + cheese.getCheeseType();
+                ", ingredients => " + dough.getDoughType() + ", " + sauce.getSauceType() + ", " +
+                cheese.getCheeseType();
+        if (clams != null) {
+            output += ", " + clams.getClamType();
+        }
+
+        return output;
     }
 }

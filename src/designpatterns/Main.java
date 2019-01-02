@@ -19,12 +19,16 @@ public class Main {
     private static void abstractFactory() {
         System.out.println("\n*** Abstract Factory ***");
         var americanPizzaStore = new AmericanPizzaStore();
-        var americanPizza = americanPizzaStore.orderPizza(PizzaType.Cheese);
-        System.out.println(americanPizza.toString());
+        var americanCheesePizza = americanPizzaStore.orderPizza(PizzaType.Cheese);
+        System.out.println(americanCheesePizza.toString());
+        var americanClamPizza = americanPizzaStore.orderPizza(PizzaType.Clam);
+        System.out.println(americanClamPizza.toString());
         System.out.println("\n");
         var italianPizzaStore = new ItalianPizzaStore();
-        var italianPizza = italianPizzaStore.orderPizza(PizzaType.Cheese);
-        System.out.println(italianPizza.toString());
+        var italianCheesePizza = italianPizzaStore.orderPizza(PizzaType.Cheese);
+        System.out.println(italianCheesePizza.toString());
+        var italianClamPizza = italianPizzaStore.orderPizza(PizzaType.Clam);
+        System.out.println(italianClamPizza.toString());
     }
 
     private static void naiveSingleton() {

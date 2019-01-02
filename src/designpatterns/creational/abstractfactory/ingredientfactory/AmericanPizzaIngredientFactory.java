@@ -1,9 +1,6 @@
 package designpatterns.creational.abstractfactory.ingredientfactory;
 
-import designpatterns.creational.abstractfactory.ingredient.ICheese;
-import designpatterns.creational.abstractfactory.ingredient.IDough;
-import designpatterns.creational.abstractfactory.ingredient.ReggianoCheese;
-import designpatterns.creational.abstractfactory.ingredient.ThickDough;
+import designpatterns.creational.abstractfactory.ingredient.*;
 
 public class AmericanPizzaIngredientFactory implements IPizzaIngredientFactory {
     @Override
@@ -14,5 +11,15 @@ public class AmericanPizzaIngredientFactory implements IPizzaIngredientFactory {
     @Override
     public ICheese createCheese() {
         return new ReggianoCheese();
+    }
+
+    @Override
+    public ISauce createSauce() {
+        return new MarinaraSauce();
+    }
+
+    @Override
+    public IClams createClam() {
+        return new FrozenClams();
     }
 }

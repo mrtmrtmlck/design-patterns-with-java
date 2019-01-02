@@ -2,10 +2,10 @@ package designpatterns.creational.abstractfactory.pizza;
 
 import designpatterns.creational.abstractfactory.ingredientfactory.IPizzaIngredientFactory;
 
-public class CheesePizza extends Pizza {
+public class ClamPizza extends Pizza {
     private IPizzaIngredientFactory ingredientFactory;
 
-    public CheesePizza(IPizzaIngredientFactory ingredientFactory) {
+    public ClamPizza(IPizzaIngredientFactory ingredientFactory) {
         this.ingredientFactory = ingredientFactory;
     }
 
@@ -15,5 +15,6 @@ public class CheesePizza extends Pizza {
         setDough(ingredientFactory.createDough());
         setSauce(ingredientFactory.createSauce());
         setCheese(ingredientFactory.createCheese());
+        setClams(ingredientFactory.createClam());
     }
 }
