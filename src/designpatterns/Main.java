@@ -1,5 +1,8 @@
 package designpatterns;
 
+import designpatterns.creational.abstractfactory.pizzastore.AmericanPizzaStore;
+import designpatterns.creational.abstractfactory.pizzastore.ItalianPizzaStore;
+import designpatterns.creational.abstractfactory.enums.PizzaType;
 import designpatterns.creational.factorymethod.ComputerProductFactory;
 import designpatterns.creational.factorymethod.PhoneProductFactory;
 import designpatterns.creational.singleton.Singleton;
@@ -10,6 +13,18 @@ public class Main {
         naiveSingleton();
         threadSafeSingleton();
         factoryMethod();
+        abstractFactory();
+    }
+
+    private static void abstractFactory() {
+        System.out.println("\n*** Abstract Factory ***");
+        var americanPizzaStore = new AmericanPizzaStore();
+        var americanPizza = americanPizzaStore.orderPizza(PizzaType.Cheese);
+        System.out.println(americanPizza.toString());
+        System.out.println("\n");
+        var italianPizzaStore = new ItalianPizzaStore();
+        var italianPizza = italianPizzaStore.orderPizza(PizzaType.Cheese);
+        System.out.println(italianPizza.toString());
     }
 
     private static void naiveSingleton() {
